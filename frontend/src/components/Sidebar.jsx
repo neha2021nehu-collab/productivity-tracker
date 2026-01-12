@@ -1,9 +1,9 @@
 function Sidebar({ activeSection, setActiveSection }) {
   const items = [
-    { id: "home", label: "Home" },
-    { id: "tasks", label: "Tasks" },
-    { id: "notes", label: "Daily Notes" },
-    { id: "diary", label: "Daily Diary" },
+    { id: "home", label: "Home", icon: "🏠" },
+    { id: "tasks", label: "Tasks", icon: "✅" },
+    { id: "notes", label: "Daily Notes", icon: "📝" },
+    { id: "diary", label: "Daily Diary", icon: "📖" },
   ];
 
   return (
@@ -19,6 +19,7 @@ function Sidebar({ activeSection, setActiveSection }) {
             }`}
             onClick={() => setActiveSection(item.id)}
           >
+            <span className="nav-icon">{item.icon}</span>
             {item.label}
           </button>
         ))}
