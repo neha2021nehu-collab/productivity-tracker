@@ -1,25 +1,29 @@
-function TaskList({ tasks, onToggleTask }) {
+function TaskList({ tasks, onToggleTask, onDeleteTask }) {
   if (tasks.length === 0) {
-    return <p>No tasks added yet.</p>;
+    return <p className="empty-text">No tasks yet.</p>;
   }
 
   return (
-    <ul>
+    <ul className="task-list">
       {tasks.map((task) => (
-        <li key={task.id}>
+        <li key={task.id} className="task-item">
           <input
             type="checkbox"
             checked={task.completed}
             onChange={() => onToggleTask(task.id)}
           />
-          <span
-            style={{
-              textDecoration: task.completed ? "line-through" : "none",
-              marginLeft: "8px",
-            }}
-          >
+
+          <span className={task.completed ? "completed" : ""}>
             {task.text}
           </span>
+
+          <button
+            className="delete-btn"
+            onClick={() => onDeleteTask(task.id)}
+            title="Delete task"
+          >
+            ✕
+          </button>
         </li>
       ))}
     </ul>

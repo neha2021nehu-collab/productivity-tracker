@@ -12,7 +12,7 @@ function TaskForm({ onAddTask }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter a task"
